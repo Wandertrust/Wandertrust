@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_175336) do
     t.string "password_digest"
     t.string "emergency_contact_name"
     t.string "emergency_contact_phone"
-    t.string "emergency_contact_relationship"
+    t.integer "emergency_contact_relationship"
   end
 
 end

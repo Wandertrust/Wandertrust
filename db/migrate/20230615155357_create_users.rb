@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.string :emergency_contact_name
       t.string :emergency_contact_phone
-      t.string :emergency_contact_relationship
+      t.integer :emergency_contact_relationship
     end
   end
 end
