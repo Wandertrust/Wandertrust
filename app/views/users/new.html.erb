@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-sm-6">
+      <div class="card p-4">
+        <h1 class="card-title text-center mb-4">🏔️ Wander With Us 🏔️</h1>
+          <%= form_with model: @user, local: true, class: "row g-3" do |f|%>
+            <%=f.label :name, "Name:"%>
+            <%= f.text_field :name %>
+
+            <%=f.label :email, "Email:"%>
+            <%= f.text_field :email %>
+
+            <%=f.label :password, "Password:"%>
+            <%= f.password_field :password %>
+
+            <%=f.label :password_confirmation, "Confirm Password:"%>
+            <%= f.password_field :password_confirmation %>
+
+            <div class="form-group row g-3 mb-4">
+            <br>
+            <br>
+              <h3 class="text-center">Emergency Contact Information</h3>
+              
+              <div class="form-group">
+                <label for="emergency_contact_relationship">Relationship:</label>
+                <select class="custom-select" id="emergency_contact_relationship">
+                  <option selected>Select One...</option>
+                  <option>Mother</option>
+                  <option>Father</option>
+                  <option>Partner</option>
+                  <option>Sibling</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <%=f.label :emergency_contact_name, "Full Name:"%>
+              <%= f.text_field :emergency_contact_name %>
+
+              <%=f.label :emergency_contact_phone, "Phone Number:"%>
+              <%= f.text_field :emergency_contact_phone %>
+            </div>
+            <%= f.submit "Get Wandering", class: "btn btn-primary" %>
+
+            <%end%>
+      </div>
+    </div>
+  </div>
+</div>
