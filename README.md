@@ -17,7 +17,7 @@
 
   <!-- [Visit Wandertrust](https://secure-crag-03925.herokuapp.com/) -->
 
-  <h3 align="center">🏔️ Wandertrust - Wander freely, wander safe 🏔️</h3>
+  <h3 align="center">🏔️ Wandertrust - Wander free, wander safe 🏔️</h3>
 
   <p align="center">
     Wandertrust provides a place for outdoor adventurers to plan, organize, and share their trips. Here at Wandertrust we know how important every detail is in keeping you safe in the places you wander. Our platform boasts map sharing, detail planning, weather information, and even live tracking for all your adventures. We are here to help you spend less time bouncing between planning apps, and more time bouncing between peaks, rivers, valleys, and anywhere else you may wander.
