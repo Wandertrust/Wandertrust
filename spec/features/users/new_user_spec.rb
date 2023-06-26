@@ -15,7 +15,7 @@ RSpec.describe 'New User Page' do
       expect(page).to have_field(:user_password_confirmation)
       expect(page).to have_field(:user_emergency_contact_name)
       expect(page).to have_field(:user_emergency_contact_phone)
-      expect(page).to have_select(:emergency_contact_relationship)
+      expect(page).to have_select(:user_emergency_contact_relationship)
       expect(page).to have_button("Get Wandering")
     end
 
@@ -30,11 +30,12 @@ RSpec.describe 'New User Page' do
       fill_in :user_password_confirmation, with: "password1234"
       fill_in :user_emergency_contact_name, with: "Joe"
       fill_in :user_emergency_contact_phone, with: "518-932-2664"
-      select "Partner", from: :emergency_contact_relationship
+      select "Partner", from: :user_emergency_contact_relationship
       click_on "Get Wandering"
 
+      user = User.last
 
-      expect(current_path).to eq("/users/1")
+      expect(current_path).to eq("/users/#{user.id}")
       expect(page).to have_content("Welcome, Tori!")
     end
   end

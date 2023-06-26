@@ -21,17 +21,8 @@
             <br>
               <h3 class="text-center">Emergency Contact Information</h3>
               
-              <div class="form-group">
-                <label for="emergency_contact_relationship">Relationship:</label>
-                <select class="custom-select" id="emergency_contact_relationship">
-                  <option selected>Select One...</option>
-                  <option>Mother</option>
-                  <option>Father</option>
-                  <option>Partner</option>
-                  <option>Sibling</option>
-                  <option>Other</option>
-                </select>
-              </div>
+              <%=f.label :emergency_contact_relationship, "Relationship:"%>
+              <%= f.select :emergency_contact_relationship, options_for_select([["Select One", ""], "Mother", "Father", "Partner", "Sibling", "Other"]) %>
 
               <%=f.label :emergency_contact_name, "Full Name:"%>
               <%= f.text_field :emergency_contact_name %>
