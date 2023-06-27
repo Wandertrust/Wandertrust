@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       redirect_to register_path
     else
       redirect_to register_path
-      flash[:error] = user.errors.full_messages
+      flash[:error] = user.errors.full_messages.join(", ")
     end
   end
 

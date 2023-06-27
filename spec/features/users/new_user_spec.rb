@@ -20,7 +20,6 @@ RSpec.describe 'New User Page' do
     end
 
     xit "the user should also see a link to register using google" do
-
     end
 
     it "the user should be taken to their dashboard when they fill out the form and click submit" do
@@ -37,6 +36,43 @@ RSpec.describe 'New User Page' do
 
       expect(current_path).to eq("/users/#{user.id}")
       expect(page).to have_content("Welcome, Tori!")
+    end
+  end
+
+  describe 'sad_path' do
+    before :each do
+      @user_1 = User.create!(name: 'Joe', email: "jsphverro5@gmail.com", password: "melons1234", emergency_contact_name: "Tori", emergency_contact_phone: "319-654-6008", emergency_contact_relationship: "Partner")
+
+      visit "/register"
+    end
+
+    it "the user should not be able to register if the account already exists" do
+      fill_in :user_name, with: "Joe"
+      fill_in :user_email, with: "jsphverro5@gmail.com"
+      fill_in :user_password, with: "melons1234"
+      fill_in :user_password_confirmation, with: "melons1234"
+      fill_in :user_emergency_contact_name, with: "Tori"
+      fill_in :user_emergency_contact_phone, with: "319-654-6008"
+      select "Partner", from: :user_emergency_contact_relationship
+      click_on "Get Wandering"
+
+      expect(page).to have_content("Email has already been taken")
+      expect(current_path).to eq("/register")
+    end
+
+
+    it "the user should not be able to create an account if there is missing information" do
+      fill_in :user_name, with: "Tori"
+      fill_in :user_email, with: "torienyart@gmail.com"
+      fill_in :user_password, with: "password1234"
+      fill_in :user_emergency_contact_name, with: "Joe"
+      fill_in :user_emergency_contact_phone, with: "518-932-2664"
+      click_on "Get Wandering"
+
+      user = User.last
+
+      expect(current_path).to eq("/register")
+      expect(page).to have_content("Password confirmation doesn't match Password, Emergency contact relationship can't be blank")
     end
   end
 end
