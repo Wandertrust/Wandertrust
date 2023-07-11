@@ -16,6 +16,10 @@ RSpec.describe "User Login feature" do
       expect(page.current_path).to eq("/users/#{@user_1.id}")
       expect(page).to have_content("Welcome, Joe!")
     end
+
+    it "has a button to login with google oauth" do
+      expect(page).to have_button("Log In with Google")
+    end
   end
 
   describe "sad path" do

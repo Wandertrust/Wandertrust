@@ -16,6 +16,12 @@
               <%= f.submit "Let's Wander", class: "btn btn-dark w-100 mb-3 text-white" %>
             </div>
           <% end %>
+          <br>
+          <div class="text-center">
+            <%= button_to '/auth/google_oauth2' do %>
+              <%= image_tag("btn_google_signin_dark_normal_web.png", alt: "Log In with Google") %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
