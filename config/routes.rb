@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/login", to: "users#login"
   post "/login", to: "users#login_user"
 
-  get "/auth/google_oauth2/callback", to: "users#omniauth"
+  get "/auth/:provider/callback", to: "users#omniauth"
 
   resources :users, only: [:create, :show]
 end
