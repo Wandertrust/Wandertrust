@@ -25,6 +25,7 @@ development:
   <<: *default
   database: wandertrust_development
   username: postgres
+  password: wandertrust123
   
 
   # The specified database role being used to connect to postgres.
