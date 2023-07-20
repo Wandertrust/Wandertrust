@@ -38,4 +38,11 @@ RSpec.describe 'welcome page contents' do
       expect(page).to have_button('new adventure')
     end
   end
+
+  describe 'page body' do
+    it 'has a prompt to login to get started' do
+      expect(page).to have_content('Start tracking your adventures so you can trust where you wander...')
+      expect(page).to have_button("let's wander")
+    end
+  end
 end

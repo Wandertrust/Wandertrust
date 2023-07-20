@@ -37,17 +37,17 @@
           </li>
           <li class="nav-item justify-content-end">
             <%if current_user%>
-              <%= button_to 'logout', '/login', method: :delete, class: "nav-link" %>
+              <%= button_to '👋 logout', '/login', method: :delete, class: "nav-link" %>
             <%end%>
           </li>
           <li class="nav-item justify-content-end">
             <%if current_user%>
-              <%= button_to 'my dashboard', user_path(current_user.id), method: :get, class: "nav-link" %>
+              <%= button_to '🏔️ my dashboard', user_path(current_user.id), method: :get, class: "nav-link" %>
             <%end%>
           </li>
           <li class="nav-item justify-content-end">
             <%if current_user%>
-              <%= button_to 'new adventure', new_user_trip_path(current_user.id), method: :get, class: "nav-link" %>
+              <%= button_to '📍 new adventure', new_user_trip_path(current_user.id), method: :get, class: "nav-link" %>
             <%end%>
           </li>
         </ul>
