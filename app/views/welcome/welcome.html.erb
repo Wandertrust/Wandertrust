@@ -4,5 +4,9 @@
 <div class="text-center">
   <h6>Start tracking your adventures so you can trust where you wander...</h6>
   <br>
-  <a class="btn btn-center btn-dark btn-md" href=<%=new_user_trip_path(current_user.id)%>>🏔️ let's wander 🏔️</a>
+  <%if current_user%>
+    <a class="btn btn-center btn-dark btn-md" href=<%=new_user_trip_path(current_user.id)%>>🏔️ let's wander 🏔️</a>
+  <%else%>
+    <a class="btn btn-center btn-dark btn-md" href=<%=register_path%>>🏔️ let's wander 🏔️</a>
+  <%end%>
 </div>
