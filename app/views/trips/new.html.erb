@@ -1,0 +1,47 @@
+<h1 class = "text-center">Let's Wander</h1>
+
+<div class = "container">
+  <div class = "row justify-content-center align-items-center">
+    <div class = "col-md-6 col-md-offset-3">
+      <%= form_with url: user_trips_path(@user.id), method: :post do |f| %>
+        <div class = "form-group">
+          <%= f.label :name, "Trip Name:", class: "form-label" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class = "form-group">
+          <%= f.label :start_time, "Start Time:", class: "form-label" %>
+          <%= f.text_field :start_time, class: "form-control" %>
+        </div>
+        
+        <div class = "form-group">
+          <%= f.label :end_time, "Projected End Time:", class: "form-label" %>
+          <%= f.text_field :end_time, class: "form-control" %>
+        </div>
+
+        <br>
+        <br>
+
+        <div class = "form-group">
+        <h3>Upload a Route:</h3>
+          <%= f.label :gpx_file %>
+          <%= f.file_field :gpx_file, class: "form-control" %>
+        </div>
+
+        <br>
+
+        <div id="3rd_party_gpx" class = "form-group">
+          <%=button_to "Connect a Strava Route"  %>
+          <br>
+          <%=button_to "Connect a Ride With GPS Route"  %>
+        </div>
+
+        <br>
+
+        <div class = "form-group">
+          <%= f.submit "Create Trip", class: "btn btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>

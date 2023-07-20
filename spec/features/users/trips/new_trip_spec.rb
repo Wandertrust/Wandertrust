@@ -16,7 +16,7 @@ describe "as a logged in user" do
 
     expect(page).to have_field('Name')
     expect(page).to have_field('Start Time')
-    expect(page).to have_field('Projected End time')
+    expect(page).to have_field('Projected End Time')
     expect(page).to have_field('gpx file')
     expect(page).to have_select('Invite other users')
   end
