@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_170053) do
     t.string "name"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.boolean "gpx_file"
+    t.string "gpx_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
