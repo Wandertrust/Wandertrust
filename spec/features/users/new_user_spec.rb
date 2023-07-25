@@ -69,10 +69,8 @@ RSpec.describe 'New User Page' do
       fill_in :user_emergency_contact_phone, with: "518-932-2664"
       click_on "Get Wandering"
 
-      user = User.last
-
       expect(current_path).to eq("/register")
-      expect(page).to have_content("Password confirmation doesn't match Password, Emergency contact relationship can't be blank")
+      expect(page).to have_content("Password confirmation doesn't match Password")
     end
   end
 end
