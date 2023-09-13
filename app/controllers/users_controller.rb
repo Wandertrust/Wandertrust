@@ -41,6 +41,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+    session.delete(:user_id)
+    current_user = nil
+    redirect_to root_path
+  end
+
   private
 
   def user_attributes

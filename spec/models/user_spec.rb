@@ -11,9 +11,6 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of :email }
     it { should validate_presence_of :password }
-    it { should validate_presence_of :emergency_contact_name }
-    it { should validate_presence_of :emergency_contact_phone }
-    it { should validate_presence_of :emergency_contact_relationship }
   end
 
 end

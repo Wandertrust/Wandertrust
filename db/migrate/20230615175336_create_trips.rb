@@ -4,7 +4,7 @@ class CreateTrips < ActiveRecord::Migration[7.0]
       t.string :name
       t.datetime :start_time
       t.datetime :end_time
-      t.boolean :gpx_file
+      t.string :gpx_file
       t.timestamps
     end
   end
