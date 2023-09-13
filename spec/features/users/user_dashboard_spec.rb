@@ -16,7 +16,8 @@ describe 'as a logged in user' do
   it 'I see a list of recently created activities' do
     #could eventually create a filter that pulls the activities either by date created or date updated or start date of the activity
     expect(page).to have_content("Here's what you've got coming up...")
-    within "#upcoming-activities" do
+    within "#upcoming-trips" do
+      require 'pry'; binding.pry
       expect(page).to have_content('La Sal Loop')
       expect(page).to have_content('Skyline')
       expect(page).to have_no_content('Ward Loop')
