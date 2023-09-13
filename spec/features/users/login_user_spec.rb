@@ -41,4 +41,17 @@ RSpec.describe "User Login feature" do
       expect(page.current_path).to eq("/login")
     end
   end
+
+  describe 'logout user' do
+    it "can logout a user that is logged in" do
+      visit '/login'
+      fill_in :email, with: @user_1.email
+      fill_in :password, with: @user_1.password
+      click_on "Let's Wander"
+
+      click_on "logout"
+
+      expect(page.current_path).to eq('/')
+    end
+  end
 end

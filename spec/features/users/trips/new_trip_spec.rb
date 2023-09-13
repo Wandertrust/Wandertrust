@@ -27,7 +27,7 @@ describe "as a logged in user" do
     end
   end
 
-  xit "when i upload a gpx file to the page it will autopopulate a map for me" do
+  xit "when i upload a gpx file to the page it will autopopulate a map  preview for me" do
 
   end
 end

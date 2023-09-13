@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   get "/login", to: "users#login"
   post "/login", to: "users#login_user"
+  delete '/login', to:  "users#logout"
 
   get "/auth/:provider/callback", to: "sessions#omniauth"
 

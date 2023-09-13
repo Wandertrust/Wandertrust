@@ -1,3 +1,10 @@
+<head>
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
 <h1 class = "text-center">Create a New Trip</h1>
 
 <div class = "container">
@@ -11,12 +18,12 @@
 
         <div class = "form-group">
           <%= f.label :start_time, "Start Time:", class: "form-label" %>
-          <%= f.text_field :start_time, class: "form-control" %>
+          <%= f.datetime_local_field :start_time, class: "form-control" %>
         </div>
 
         <div class = "form-group">
           <%= f.label :end_time, "Projected End Time:", class: "form-label" %>
-          <%= f.text_field :end_time, class: "form-control" %>
+          <%= f.datetime_local_field :end_time, class: "form-control" %>
         </div>
 
         <br>
@@ -25,8 +32,41 @@
         <div class = "form-group">
         <h3>Upload a Route:</h3>
           <%= f.label :gpx_file, "GPX File" %>
-          <%= f.file_field :gpx_file, class: "form-control" %>
+          <%= f.file_field :gpx_file, class: "form-control", :accept => 'gpx'%>
         </div>
+        <br>
+        <br>
+
+        <div id='map' style='width: 400px; height: 300px;'></div>
+          <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoidG9yaWVueWFydCIsImEiOiJjbGtpa29qbXgwaWJ3M2RucnMyM2Uyb3VvIn0.c70LlFDmTHKg3i6IqbfWnQ';
+            var map = new mapboxgl.Map({
+              container: 'map',
+              style: 'mapbox://styles/mapbox/outdoors-v12',
+              center: [-105.27, 40],
+              zoom: 9
+            });
+
+            map.on('load', () => {
+              map.addSource('route-tileset',{
+                type: 'raster',
+                tiles: [
+                  'https://api.mapbox.com/v4/torienyart.ward_loop/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidG9yaWVueWFydCIsImEiOiJjbGtpa29qbXgwaWJ3M2RucnMyM2Uyb3VvIn0.c70LlFDmTHKg3i6IqbfWnQ'
+                ],
+                tileSize: 256
+              });
+
+              map.addLayer({
+                id: 'route-tileset-layer',
+                type: 'raster',
+                source: 'route-tileset',
+                paint: {
+                  'raster-opacity': .5
+                }
+              });
+            });
+          </script>
+
 
         <br>
 
