@@ -1,1 +1,11 @@
-<h1>Welcome, <%=@user.name.split.first%>!</h1>
+<h1 class="text-center">Welcome, <%=@user.name.split.first%>!</h1>
+<div class="container-fluid" id="upcoming-trips">
+<h3>Here's what you've got coming up..."</h3>
+  <%@user.trips.each do |trip|%>
+    <div class="card" style="width: 18rem;" id="trip-<%=trip.id%>">
+      <div class="card-body">
+        <h5 class="card-title"><%=trip.name%></h5>
+      </div>
+    </div>
+  <%end%>
+</div>
