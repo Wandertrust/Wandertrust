@@ -27,6 +27,10 @@ describe 'as a logged in user' do
     expect(page).to have_button('Plan a new trip')
   end
 
+  xit "I see a button to view old trips" do
+
+  end
+
   xit "I see some sort of trend representation to see how many miles I have done or ft elevation gain etc..." do
     
   end
