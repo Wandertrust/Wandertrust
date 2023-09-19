@@ -1,11 +1,17 @@
 <h1 class="text-center">Welcome, <%=@user.name.split.first%>!</h1>
 <div class="container-fluid" id="upcoming-trips">
-<h3>Here's what you've got coming up..."</h3>
-  <%@user.trips.each do |trip|%>
-    <div class="card" style="width: 18rem;" id="trip-<%=trip.id%>">
-      <div class="card-body">
-        <h5 class="card-title"><%=trip.name%></h5>
+  <h3>Here's what you've got coming up...</h3>
+    <%@user.upcoming_trips.each do |trip|%>
+      <div class="card" style="width: 18rem;" id="trip-<%=trip.id%>">
+        <div class="card-body">
+          <h5 class="card-title"><%=trip.name%></h5>
+          <p>Start Time: <%=trip.start_time.strftime("%A, %B %d, %Y at %I:%M %p")%></p>
+          <a class="btn btn-dark btn-center btn-md" href=<%=user_trip_path(@user.id, trip.id)%>>Trip Page</a>
+        </div>
       </div>
-    </div>
-  <%end%>
+    <%end%>
+</div>
+
+<div class="container-fluid" id="past_trips">
+  <a class="btn btn-dark btn-center btn-md" href=<%=user_past_trips_path(@user.id)%>>Review Past Trips</a>
 </div>

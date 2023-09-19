@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates_presence_of :name, :email, :password, :on => :create
   validates_uniqueness_of :email
-
+  
   def self.from_omniauth(response)
     user = User.find_by(email: response[:info][:email])
     if user
@@ -21,5 +21,9 @@ class User < ApplicationRecord
         u.password = SecureRandom.hex(15)
       end
     end
+  end
+
+  def upcoming_trips
+    trips.where('end_time > ?', DateTime.now)
   end
 end

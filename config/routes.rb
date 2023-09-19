@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback", to: "sessions#omniauth"
 
   resources :users, only: [:create, :show] do
-    resources :trips, only: [:new, :create]
+    get "/past_trips", to: "users#past_trips", as: "past_trips"
+    resources :trips, only: [:new, :create, :show]
   end
 end

@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def past_trips
+    
+  end
+
   def login
   end
 
