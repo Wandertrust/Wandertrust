@@ -28,6 +28,9 @@ describe 'as a logged in user' do
       within "#trip-#{@trip_2.id}" do
         expect(page).to have_link('Trip Page')
         expect(page).to have_content(@trip_2.start_time.strftime("%A, %B %d, %Y at %I:%M %p"))
+
+        click_on 'Trip Page'
+        expect(page.current_path).to eq(user_trip_path(@user.id, @trip_2.id))
       end
     end
   end
@@ -36,8 +39,11 @@ describe 'as a logged in user' do
     expect(page).to have_button('Plan a new trip')
   end
 
-  xit "I see a button to view old trips" do
-    expect(page).to have_button('Review old trips')
+  it "I see a button to view old trips" do
+    expect(page).to have_link('Review Past Trips')
+
+    click_on 'Review Past Trips'
+    expect(page.current_path).to eq(user_past_trips_path(@user.id))
   end
 
   xit "I see some sort of trend representation to see how many miles I have done or ft elevation gain etc..." do
