@@ -4,8 +4,8 @@ describe 'as a logged in user' do
   before :each do
     @user = create(:user)
     @trip_1 = @user.trips.create(name: 'Ward Loop', start_time: "10/18/22 9:00AM", end_time: "10/18/22 2:00PM", gpx_file: 'ward_loop.gpx')
-    @trip_2 = @user.trips.create(name: 'La Sal Loop', start_time: "10/18/23 9:00AM", end_time: "10/18/23 2:00PM", gpx_file: 'la_sal_loop.gpx')
-    @trip_3 = @user.trips.create(name: 'Skyline', start_time: DateTime.now, end_time: DateTime.now + 1, gpx_file: 'skyline.gpx')
+    @trip_2 = @user.trips.create(name: 'La Sal Loop', start_time: DateTime.now - 1, end_time: DateTime.now + 1, gpx_file: 'la_sal_loop.gpx')
+    @trip_3 = @user.trips.create(name: 'Skyline', start_time: DateTime.now + 1, end_time: DateTime.now + 2, gpx_file: 'skyline.gpx')
 
     visit login_path
     fill_in 'email', with: @user.email
@@ -26,8 +26,8 @@ describe 'as a logged in user' do
   it 'each listed activity has a link to view the activity and brief information' do
     within "#upcoming-trips" do
       within "#trip-#{@trip_2.id}" do
-        expect(page).to have_link('View Trip')
-        expect(page).to have_content(@trip_1.start_time.strftime("%A, %B %d, %Y"))
+        expect(page).to have_link('Trip Page')
+        expect(page).to have_content(@trip_2.start_time.strftime("%A, %B %d, %Y at %I:%M %p"))
       end
     end
   end
